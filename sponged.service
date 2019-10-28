@@ -1,0 +1,13 @@
+[Unit]
+Description=Minecraft Sponge Server
+After=local-fs.target network.target multi-user.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/sponged start
+ExecStop=/usr/bin/sponged stop
+User=sponge
+Group=sponge
+
+[Install]
+WantedBy=multi-user.target

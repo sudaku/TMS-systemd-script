@@ -1,0 +1,12 @@
+[Unit]
+Description=Minecraft Sponge Server World Backup
+After=local-fs.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/sponged backup
+User=sponge
+Group=sponge
+
+[Install]
+WantedBy=multi-user.target
