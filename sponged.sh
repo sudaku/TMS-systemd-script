@@ -312,10 +312,10 @@ backup_files() {
 		game_command save-off
 		game_command save-all
 		sync && wait
-		${SUDO_CMD} tar -C "${SERVER_ROOT}" -cf - --totals ${BACKUP_PATHS} | xz -z -T4 - > "${BACKUP_DEST}/${FILE}" 2>&1
+		${SUDO_CMD} bash -c "tar -C "${SERVER_ROOT}" -cf - --totals ${BACKUP_PATHS} | xz -z -T4 - > "${BACKUP_DEST}/${FILE}"" 2>&1
 		game_command save-on
 	else
-		${SUDO_CMD} tar -C "${SERVER_ROOT}" -cf - --totals ${BACKUP_PATHS} | xz -z -T4 - > "${BACKUP_DEST}/${FILE}" 2>&1
+		${SUDO_CMD} bash -c "tar -C "${SERVER_ROOT}" -cf - --totals ${BACKUP_PATHS} | xz -z -T4 - > "${BACKUP_DEST}/${FILE}"" 2>&1
 	fi
 	echo -e "\e[39;1mbackup completed\e[0m\n"
 
@@ -397,7 +397,7 @@ backup_restore() {
 	fi
 
 	echo "Restoring backup..."
-	if ${SUDO_CMD} xz -d "${FILE}" -T4 -c | tar -xf - -C "${SERVER_ROOT}" 2>&1; then
+	if ${SUDO_CMD} bash -c "xz -d "${FILE}" -T4 -c | tar -xf - -C "${SERVER_ROOT}"" 2>&1; then
 		echo -e "\e[39;1mRestoration completed\e[0m"
 	else
 		echo -e "\e[39;1mFailed to restore backup.\e[0m"
