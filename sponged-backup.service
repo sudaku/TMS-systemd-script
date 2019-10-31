@@ -3,7 +3,7 @@ Description=Minecraft Sponge Server World Backup
 After=local-fs.target
 
 [Service]
-Type=forking
+Type=simple
 ExecStart=/usr/bin/sponged backup
 User=sponge
 Group=sponge
