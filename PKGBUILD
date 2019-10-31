@@ -9,11 +9,11 @@ _game="sponge"
 _server_root="/srv/sponge"
 
 _minecraft_ver=1.12.2
-_pkgver=${_minecraft_ver}-1.0.0
+_pkgver=${_minecraft_ver}-1.0.1
 
 pkgname=sponge-server
 pkgver=${_pkgver//-/_}
-pkgrel=2
+pkgrel=1
 pkgdesc="Minecraft Sponge server unit files, script, and jar"
 arch=('any')
 url="https://minecraftforge.net/"
